@@ -26,7 +26,7 @@ class Main extends React.Component {
         for (let i = 0; i < dataList.length; i++) {
             let imgSrcs = dataList[i].file.split("http://")[1];
             let place = {data :dataList[i], imgSrcs: "http://" + imgSrcs};
-            list.push(<Place place={place}/>);
+            list.push(<Place key={i} place={place}/>);
         }
         return list;
     }
