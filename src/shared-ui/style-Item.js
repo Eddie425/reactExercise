@@ -4,7 +4,8 @@ class StyleItem extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            textDeco: "none"
+            textDeco: "none",
+            word: null
         }
     }
 
@@ -19,12 +20,17 @@ class StyleItem extends React.Component{
             textDeco: "none"
         })
     }
+
+    setFilter(){
+        this.props.setFilter(this.props.word);
+    }
     
     render(){
         return <div className="item" 
         onMouseOver={this.mouseOver.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
-        style={{color: this.props.color, fontWeight: "bold", textDecoration: this.state.textDeco}}>
+        onClick={this.setFilter.bind(this)}
+        style={{fontWeight: "bold", textDecoration: this.state.textDeco}}>
                     {this.props.word}
                 </div>;
     }
